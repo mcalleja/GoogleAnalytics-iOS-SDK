@@ -10,12 +10,11 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "7.0"
   s.source       = { :http => "https://dl.google.com/googleanalyticsservices/GoogleAnalyticsServicesiOS_3.09.zip" }
 
-  s.source_files  = "GoogleAnalyticsServicesiOS_3.09/{GoogleAnalytics,GoogleTagManager}/Library/*.h"
-  # s.public_header_files = "Classes/**/*.h"
-  s.preserve_paths = "GoogleAnalyticsServicesiOS_3.09/*.a"
+  s.source_files  = "{GoogleAnalytics,GoogleTagManager}/Library/*.h"
+  s.preserve_paths = "*.a"
   s.frameworks = "CoreData", "SystemConfiguration", "AdSupport"
   s.libraries = "z", "sqlite3", "GoogleAnalyticsServices", "AdIdAccess"
   s.requires_arc = true
-  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz", "LIBRARY_SEARCH_PATHS" => '"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK/GoogleAnalyticsServicesiOS_3.09"' }
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz", "LIBRARY_SEARCH_PATHS" => '"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK"' }
 
 end
