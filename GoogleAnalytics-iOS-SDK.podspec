@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
   s.frameworks = "CoreData", "SystemConfiguration", "AdSupport"
   s.libraries = "z", "sqlite3", "GoogleAnalyticsServices", "AdIdAccess"
   s.requires_arc = true
-  s.xcconfig = {
-    "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz", "LIBRARY_SEARCH_PATHS" => '"../vendors/GoogleAnalytics/GoogleAnalyticsServicesiOS_3.09"' }
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz", "LIBRARY_SEARCH_PATHS" => '"../vendors/GoogleAnalytics/GoogleAnalyticsServicesiOS_3.09"' }
 
 end
