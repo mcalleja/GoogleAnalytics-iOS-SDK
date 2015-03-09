@@ -1,20 +1,49 @@
-Pod::Spec.new do |s|
-
-  s.name         = "GoogleAnalytics-iOS-SDK"
-  s.version      = "3.10"
-  s.summary      = "Google Analytics SDK for iOS v3.10 with IDFA enabled."
-  s.description  = "This SDK provides developers with the capability to use Google Analytics to track iOS application usage."
-  s.homepage     = "https://developers.google.com/analytics/devguides/collection/ios/"
-  s.license      = { :type => "Copyright", :text => "Copyright 2009 - 2014 Google, Inc. All rights reserved." }
-  s.author       = "Google Inc."
-  s.platform     = :ios, "7.0"
-  s.source       = { :http => "https://dl.google.com/googleanalyticsservices/GoogleAnalyticsServicesiOS_3.10.zip" }
-
-  s.preserve_paths = "*.a"
-  s.source_files  = "{GoogleAnalytics,GoogleTagManager}/Library/*.h"
-  s.frameworks = "CoreData", "SystemConfiguration", "AdSupport"
-  s.libraries = "z", "sqlite3", "GoogleAnalyticsServices", "AdIdAccess"
-  s.requires_arc = true
-  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libz", "LIBRARY_SEARCH_PATHS" => "\"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK\"" }
-
-end
+{
+  "name": "GoogleAnalytics-iOS-SDK",
+  "version": "3.10",
+  "summary": "GoogleAnalytics for iOS SDK.",
+  "description": "  The Google Analytics SDK for iOS makes it easy for native iOS developers to collect user engagement data form their applications. Developers can then use the Google Analytics reports to measure:\n\n      * The number of active users are using their applications.\n      * From where in the world the application is being used.\n      * Adoption and usage of specific features.\n      * In-app purchases and transactions.\n      * And many other useful metrics...\n",
+  "homepage": "https://developers.google.com/analytics/devguides/collection/ios/",
+  "license": {
+    "type": "Copyright",
+    "text": "      Copyright 2009 - 2014 Google, Inc. All rights reserved.\n"
+  },
+  "authors": "Google Inc.",
+  "source": {
+    "http": "https://dl.google.com/googleanalyticsservices/GoogleAnalyticsServicesiOS_3.10.zip",
+    "flatten": true
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": [
+        "GoogleAnalytics/Library/*.h",
+        "GoogleTagManager/Library/*.h"
+      ],
+      "preserve_paths": "*.a",
+      "frameworks": [
+        "Foundation",
+        "UIKit",
+        "CFNetwork",
+        "CoreData",
+        "SystemConfiguration",
+        "AdSupport"
+      ],
+      "libraries": [
+        "GoogleAnalyticsServices",
+        "z",
+        "sqlite3",
+        "AdIdAccess"
+      ],
+      "xcconfig": {
+        "LIBRARY_SEARCH_PATHS": "\"$(PODS_ROOT)/GoogleAnalytics-iOS-SDK\"",
+        "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libz"
+      }
+    }
+  ]
+}
