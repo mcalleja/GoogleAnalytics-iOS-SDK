@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.source       = { :http => "https://dl.google.com/googleanalyticsservices/GoogleAnalyticsServicesiOS_3.10.zip" }
 
   s.preserve_paths = "*.a"
-  s.source_files  = "GoogleAnalyticsServicesiOS_3.10/{GoogleAnalytics,GoogleTagManager}/Library/*.h"
+  s.source_files  = "{GoogleAnalytics,GoogleTagManager}/Library/*.h"
   s.frameworks = "CoreData", "SystemConfiguration", "AdSupport"
   s.libraries = "z", "sqlite3", "GoogleAnalyticsServices", "AdIdAccess"
   s.requires_arc = true
